@@ -10,6 +10,18 @@ gsap.registerPlugin(ScrollTrigger);
 
 let mixer, mixer2, moi, desk,action, clock = new THREE.Clock();
 
+const loadingManager = new THREE.LoadingManager();
+
+const progressBar = document.querySelector('#progress-bar');
+loadingManager.onProgress = (item, loaded, total) => {
+  progressBar.value = loaded / total*100;
+}
+
+const progressContainer = document.querySelector('.progress-bar-container');
+loadingManager.onLoad = () => {
+  progressContainer.style.display = 'none';
+};
+
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -52,7 +64,7 @@ scene.add(light3);
 const group = new THREE.Group();
 
 
-const loader = new FBXLoader();
+const loader = new FBXLoader(loadingManager);
 loader.load('./assets/3d/typing.fbx', (fbx) => {
   moi = fbx;
   moi.scale.setScalar(0.07);
@@ -68,7 +80,7 @@ loader.load('./assets/3d/typing.fbx', (fbx) => {
 });
 
 
-const  loader2 = new GLTFLoader();
+const  loader2 = new GLTFLoader(loadingManager);
 loader2.load('./assets/3d/desk.glb', (gltf) => {
   desk = gltf.scene;
   desk.position.y = -5;

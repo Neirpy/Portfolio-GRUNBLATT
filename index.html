@@ -9,12 +9,16 @@
     <script src="js/modal.js" defer></script>
   </head>
   <body>
+  <div class="progress-bar-container">
+    <label class="progress-bar">Loading ...</label>
+    <progress id="progress-bar" value="0" max="100"></progress>
+  </div>
   <nav>
     <ul>
       <li><a href="#presentation">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#project">Projects</a></li>
-      <li><a href="/contact">Contact</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
     <div id="barreUrl">
       <img src="assets/logo/arrow-left-solid.svg" alt="Arrow Left">
@@ -536,7 +540,7 @@
             </p>
         </div>
         <div class="contact-info-item">
-          <input type="button" value="Download CV" onclick="window.location.href='/assets/En_CV_Grunblatt.pdf'">
+          <input type="button" value="Download CV" onclick="window.location.href='assets/En_CV_Grunblatt.pdf'">
           <p></p>
         </div>
       </div>

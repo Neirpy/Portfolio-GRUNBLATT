@@ -14,6 +14,37 @@ body{
     position: static;
 }
 
+.progress-bar-container{
+    position: fixed;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(148, 168, 206, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+progress::-moz-progress-bar {
+    background: #352862;
+}
+
+progress::-webkit-progress-value {
+    background: #352862;
+}
+
+.progress-bar-container label{
+    font-size: 1.5em;
+    margin-bottom: 1%;
+}
+
+#progress-bar{
+    width: 30%;
+    height: 2%;
+    margin-top: 0.5%;
+    background-color: #fdfdfd;
+}
+
 nav{
     position: fixed;
     top: 0;
@@ -368,7 +399,6 @@ article{
 #qrcode{
     width: 200px;
     height: 100px;
-    object-fit: cover;
     border-radius: calc(20px - 2%);
     object-fit: contain;
 }
