@@ -19,7 +19,7 @@ nav{
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 3;
     background-color: darkgrey;
 }
 
@@ -60,9 +60,6 @@ nav ul li a{
     color: black;
     text-align: center;
     transition: background-color 0.3s ease;
-}
-
-nav ul li a:before{
 }
 
 #barreUrl{
@@ -377,8 +374,8 @@ article{
 }
 
 .project-img img{
-    width: 200px;
-    height: 100px;
+    max-width: 200px;
+    max-height: 100px;
     object-fit: cover;
     border-radius: calc(20px - 2%);
 }
@@ -412,6 +409,157 @@ article{
     font-size: 0.8em;
     width: 100%;
 }
+
+.modalProject{
+    position: fixed;
+    width: 100%;
+    padding-top: 1.5%;
+    top: 10%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    background: rgba(6, 12, 49, 0.6);
+    z-index: 99999;
+    opacity: 0;
+    pointer-events: none;
+    transition: 1s opacity;
+}
+
+.modalHeader{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.modalHeader h2{
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+}
+
+.modalClose{
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 2em;
+    padding: 0.5% 1% 0.5% 1%;
+    /*bordure pour faire un cercle*/
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.8s background, 0.8s rotate;
+}
+
+.modalClose:hover{
+    background: #d31e1e;
+    rotate: 180deg;
+}
+
+.noScroll{
+    overflow-y: hidden;
+}
+
+.modalContent{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 70% 30%;
+}
+
+.modalImg{
+    width: 90%;
+    max-height: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: cover;
+    border-radius: calc(20px - 2%);
+}
+
+.modalTechno{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modalTechno img{
+    width: 50px;
+    height: 50px;
+}
+
+.active{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+footer{
+    background : linear-gradient(rgba(22, 61, 145, 0.5), rgba(14, 44, 192, 0.5));
+    padding-top: 2%;
+    position: relative;
+    width: 100%;
+    z-index: 5;
+}
+
+footer h2{
+    margin-top: 0;
+    text-align: center;
+    font-size: 2em;
+}
+
+footer a {
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: 0.8s underline;
+}
+
+footer a:hover{
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+.contact-info{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
+    align-items: center;
+}
+
+.contact-info-item{
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-info-item img{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-info-item input{
+    width: 60%;
+    height: 70%;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #FFFFFF;
+    background-color: #0c3156;
+    transition: background-color 0.8s;
+    border-radius: 5%;
+}
+
+.contact-info-item input:hover{
+    cursor: pointer;
+    background-color: #115296;
+}
+
 
 canvas{
     display: block;

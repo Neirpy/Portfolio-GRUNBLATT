@@ -3,6 +3,7 @@ import { FBXLoader} from "three/addons/loaders/FBXLoader.js";
 import {GLTFLoader} from "three/addons/loaders/GLTFLoader.js";
 import {gsap} from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {HemisphereLight} from "three";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,23 +32,34 @@ renderer.setPixelRatio(window.devicePixelRatio);
 // light
 const light = new THREE.DirectionalLight(0xc179b9, 1);
 light.position.set(1, 1, 1);
+light.castShadow=true;
+light.shadow.bias=-0.0001;
+light.shadow.mapSize.width=1024*4;
+light.shadow.mapSize.height=1024*4;
 scene.add(light);
 
 const light2 = new THREE.DirectionalLight(0xc179b9, 1);
 light2.position.set(-1, 1, 1);
+light2.castShadow=true;
+light2.shadow.bias=-0.0001;
+light2.shadow.mapSize.width=1024*4;
+light2.shadow.mapSize.height=1024*4;
 scene.add(light2);
 
+const light3 = new HemisphereLight(0xffffff, 0x000000, 1);
+scene.add(light3);
 //group
 const group = new THREE.Group();
 
 
 const loader = new FBXLoader();
-loader.load('/assets/3d/typing.fbx', (fbx) => {
+loader.load('./assets/3d/typing.fbx', (fbx) => {
   moi = fbx;
   moi.scale.setScalar(0.07);
   moi.position.y = -5;
   moi.traverse(c => {
     c.castShadow = true;
+    c.receiveShadow = true;
   });
   mixer = new THREE.AnimationMixer(moi);
   action = mixer.clipAction(moi.animations[0]);
@@ -57,12 +69,13 @@ loader.load('/assets/3d/typing.fbx', (fbx) => {
 
 
 const  loader2 = new GLTFLoader();
-loader2.load('/assets/3d/desk.glb', (gltf) => {
+loader2.load('./assets/3d/desk.glb', (gltf) => {
   desk = gltf.scene;
   desk.position.y = -5;
   desk.scale.setScalar(7);
   desk.traverse(c => {
     c.castShadow = true;
+    c.receiveShadow = true;
   })
   mixer2 = new THREE.AnimationMixer(desk);
   action = mixer2.clipAction(gltf.animations[0]);
