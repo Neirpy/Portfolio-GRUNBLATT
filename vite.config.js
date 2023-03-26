@@ -1,5 +1,6 @@
-import {defineConfig} from "vite";
+import { defineConfig } from 'vite';
 
-export default defineConfig({
-  publicDir: "assets",
-})
+  export default defineConfig({
+    base: './',
+    assetsInclude: ['**/*.glb','**/*.fbx']
+  });

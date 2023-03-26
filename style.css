@@ -470,6 +470,32 @@ article{
     padding: 0;
 }
 
+.modalProject-info{
+    width: 70%;
+    background-color: #86b7e7;
+    padding-left: 2%;
+    padding-right: 2%;
+    border-radius: 20px;
+}
+
+.modalProject-info h4{
+    font-size: 1.5em;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding-top: 2%;
+}
+
+.inWork{
+    font-weight: normal;
+    color: #265651;
+}
+
+.finish{
+    font-weight: normal;
+    color: #24ecff;
+}
+
 .modalClose{
     color: #FFFFFF;
     text-align: center;
@@ -488,6 +514,10 @@ article{
 
 .noScroll{
     overflow-y: hidden;
+}
+
+#audiovisual{
+    overflow-y: auto;
 }
 
 .modalContent{

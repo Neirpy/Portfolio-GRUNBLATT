@@ -4,6 +4,9 @@ import {GLTFLoader} from "three/addons/loaders/GLTFLoader.js";
 import {gsap} from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {HemisphereLight} from "three";
+import {modal} from "./public/js/modal.js";
+
+modal();
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,6 +23,7 @@ loadingManager.onProgress = (item, loaded, total) => {
 const progressContainer = document.querySelector('.progress-bar-container');
 loadingManager.onLoad = () => {
   progressContainer.style.display = 'none';
+  document.body.classList.remove('noScroll');
 };
 
 const scene = new THREE.Scene();
