@@ -6,6 +6,7 @@ body,html{
     font-family: 'Gill Sans MT', sans-serif;
     color: #fdfdfd;
     background: #352862;
+    scroll-behavior: smooth;
     /*background: #312f34;*/
 }
 
