@@ -5,6 +5,7 @@ import {gsap} from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {HemisphereLight} from "three";
 import {modal} from "./public/js/modal.js";
+import {FlakesTexture} from "three/addons/textures/FlakesTexture.js";
 
 modal();
 
@@ -32,10 +33,6 @@ const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerH
 camera.position.set(0, 7, 15);
 camera.lookAt(0, 0, 0);
 
-
-
-
-
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('#app'),
   antialias: true,
@@ -44,6 +41,9 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1;
+renderer.outputEncoding = THREE.sRGBEncoding;
 
 // light
 const light = new THREE.DirectionalLight(0xc179b9, 1);
@@ -64,6 +64,7 @@ scene.add(light2);
 
 const light3 = new HemisphereLight(0xffffff, 0x000000, 1);
 scene.add(light3);
+
 //group
 const group = new THREE.Group();
 
